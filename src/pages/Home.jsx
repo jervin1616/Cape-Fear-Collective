@@ -45,9 +45,9 @@ export default function Home() {
           <img
             src="https://picsum.photos/seed/coastalwedding/1200/1800"
             alt="Sunset wedding ceremony"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-center brightness-125"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-stone-dark via-stone-dark/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-stone-dark via-stone-dark/40 to-transparent" />
         </div>
 
         {/* Mobile: full-width photo behind overlay */}
