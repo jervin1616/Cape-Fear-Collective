@@ -2,15 +2,78 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const galleryItems = [
-  { id: 1, caption: 'Elise + Marcus', sub: 'Airlie Gardens · October', category: 'Weddings', aspect: 'portrait' },
-  { id: 2, caption: 'Sophia + Daniel', sub: 'Fig Tree Restaurant · June', category: 'Weddings', aspect: 'landscape' },
-  { id: 3, caption: 'Claire + Noah', sub: 'Wrightsville Beach · September', category: 'Elopements', aspect: 'portrait' },
-  { id: 4, caption: 'Priya + Thomas', sub: 'Private Estate, Raleigh · May', category: 'Weddings', aspect: 'landscape' },
-  { id: 5, caption: 'Ava + Liam', sub: 'Bald Head Island · April', category: 'Engagements', aspect: 'portrait' },
-  { id: 6, caption: 'Margot + James', sub: 'Sunset Beach · August', category: 'Elopements', aspect: 'landscape' },
-  { id: 7, caption: 'Isabelle + Ryan', sub: 'Battleship North Carolina · November', category: 'Weddings', aspect: 'portrait' },
-  { id: 8, caption: 'Zoe + Miles', sub: 'Fort Fisher · March', category: 'Engagements', aspect: 'landscape' },
-  { id: 9, caption: 'Avery + Cole', sub: 'Airlie Gardens · July', category: 'Weddings', aspect: 'portrait' },
+  {
+    id: 1,
+    caption: 'Elise + Marcus',
+    sub: 'Airlie Gardens · October',
+    category: 'Weddings',
+    aspect: 'portrait',
+    src: 'https://picsum.photos/seed/weddingone/600/800',
+  },
+  {
+    id: 2,
+    caption: 'Sophia + Daniel',
+    sub: 'Fig Tree Restaurant · June',
+    category: 'Weddings',
+    aspect: 'landscape',
+    src: 'https://picsum.photos/seed/weddingtwo/800/600',
+  },
+  {
+    id: 3,
+    caption: 'Claire + Noah',
+    sub: 'Wrightsville Beach · September',
+    category: 'Elopements',
+    aspect: 'portrait',
+    src: 'https://picsum.photos/seed/elopementone/600/800',
+  },
+  {
+    id: 4,
+    caption: 'Priya + Thomas',
+    sub: 'Private Estate, Raleigh · May',
+    category: 'Weddings',
+    aspect: 'landscape',
+    src: 'https://picsum.photos/seed/weddingthree/800/600',
+  },
+  {
+    id: 5,
+    caption: 'Ava + Liam',
+    sub: 'Bald Head Island · April',
+    category: 'Engagements',
+    aspect: 'portrait',
+    src: 'https://picsum.photos/seed/engagementone/600/800',
+  },
+  {
+    id: 6,
+    caption: 'Margot + James',
+    sub: 'Sunset Beach · August',
+    category: 'Elopements',
+    aspect: 'landscape',
+    src: 'https://picsum.photos/seed/elopementtwo/800/600',
+  },
+  {
+    id: 7,
+    caption: 'Isabelle + Ryan',
+    sub: 'Battleship North Carolina · November',
+    category: 'Weddings',
+    aspect: 'portrait',
+    src: 'https://picsum.photos/seed/weddingfour/600/800',
+  },
+  {
+    id: 8,
+    caption: 'Zoe + Miles',
+    sub: 'Fort Fisher · March',
+    category: 'Engagements',
+    aspect: 'landscape',
+    src: 'https://picsum.photos/seed/engagementtwo/800/600',
+  },
+  {
+    id: 9,
+    caption: 'Avery + Cole',
+    sub: 'Airlie Gardens · July',
+    category: 'Weddings',
+    aspect: 'portrait',
+    src: 'https://picsum.photos/seed/weddingfive/600/800',
+  },
 ]
 
 const filters = ['All', 'Weddings', 'Engagements', 'Elopements']
@@ -64,8 +127,13 @@ export default function Portfolio() {
                 item.aspect === 'portrait' ? 'aspect-[3/4]' : 'aspect-[4/3]'
               }`}
             >
-              {/* Placeholder */}
-              <div className="absolute inset-0 bg-[#1a1714] border border-gold/0 group-hover:border-gold/30 transition-all duration-500" />
+              {/* Photo */}
+              <img
+                src={item.src}
+                alt={`${item.caption} — ${item.sub}`}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
 
               {/* Hover overlay */}
               <div className="absolute inset-0 bg-stone-dark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col items-center justify-center">
@@ -80,8 +148,8 @@ export default function Portfolio() {
                 </p>
               </div>
 
-              {/* Default caption (subtle) */}
-              <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-stone-dark/80 to-transparent group-hover:opacity-0 transition-opacity duration-300">
+              {/* Default caption gradient (fades on hover) */}
+              <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-stone-dark/70 to-transparent group-hover:opacity-0 transition-opacity duration-300">
                 <p className="font-cormorant italic text-cream-muted text-xs text-center">
                   {item.caption}
                 </p>

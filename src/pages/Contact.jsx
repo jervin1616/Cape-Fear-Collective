@@ -164,12 +164,14 @@ export default function Contact() {
               </p>
             </div>
 
-            {/* Decorative placeholder */}
-            <div
-              className="photo-placeholder rounded-sm mt-4"
-              style={{ aspectRatio: '4/3' }}
-            >
-              <span>Elise at a recent workshop</span>
+            {/* Decorative photo */}
+            <div className="rounded-sm overflow-hidden mt-4" style={{ aspectRatio: '4/3' }}>
+              <img
+                src="https://picsum.photos/seed/eliseworkshop/800/600"
+                alt="Elise at a recent workshop"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
           </aside>
         </div>

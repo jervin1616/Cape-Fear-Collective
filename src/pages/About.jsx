@@ -40,12 +40,13 @@ export default function About() {
       {/* Two-column bio */}
       <section className="px-8 py-16 max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-          {/* Portrait placeholder */}
-          <div
-            className="photo-placeholder rounded-sm"
-            style={{ aspectRatio: '3/4', minHeight: '400px' }}
-          >
-            <span>Portrait of Elise</span>
+          {/* Portrait */}
+          <div className="rounded-sm overflow-hidden" style={{ aspectRatio: '3/4', minHeight: '400px' }}>
+            <img
+              src="https://picsum.photos/seed/eliseportrait/600/800"
+              alt="Portrait of Elise Monroe"
+              className="w-full h-full object-cover object-top"
+            />
           </div>
 
           {/* Bio text */}

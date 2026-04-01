@@ -1,9 +1,15 @@
 import { Link } from 'react-router-dom'
 
-function PhotoPlaceholder({ caption, className = '' }) {
+// Reusable image component with cover fit
+function Photo({ src, alt, className = '' }) {
   return (
-    <div className={`photo-placeholder ${className}`}>
-      <span>{caption}</span>
+    <div className={`relative overflow-hidden ${className}`}>
+      <img
+        src={src}
+        alt={alt}
+        className="w-full h-full object-cover"
+        loading="lazy"
+      />
     </div>
   )
 }
@@ -34,21 +40,22 @@ export default function Home() {
     <main>
       {/* ── Hero ── */}
       <section className="relative min-h-screen bg-stone-dark flex items-center overflow-hidden">
-        {/* Desktop: right-side photo block */}
-        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[60%] hidden md:flex">
-          <PhotoPlaceholder
-            caption="Hero image — Sunset ceremony, Wrightsville Beach"
-            className="w-full h-full"
+        {/* Desktop: right-side photo */}
+        <div className="absolute right-0 top-0 bottom-0 w-full md:w-[60%] hidden md:block">
+          <img
+            src="https://picsum.photos/seed/coastalwedding/1200/1800"
+            alt="Sunset wedding ceremony"
+            className="w-full h-full object-cover object-center"
           />
-          {/* Dark overlay gradient on left edge */}
-          <div className="absolute inset-0 bg-gradient-to-r from-stone-dark via-stone-dark/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-stone-dark via-stone-dark/50 to-transparent" />
         </div>
 
         {/* Mobile: full-width photo behind overlay */}
         <div className="absolute inset-0 md:hidden">
-          <PhotoPlaceholder
-            caption="Hero image — Sunset ceremony, Wrightsville Beach"
-            className="w-full h-full"
+          <img
+            src="https://picsum.photos/seed/coastalwedding/800/1200"
+            alt="Sunset wedding ceremony"
+            className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-stone-dark/80" />
         </div>
@@ -113,22 +120,49 @@ export default function Home() {
           {/* Asymmetric grid */}
           <div className="grid grid-cols-2 grid-rows-2 gap-3 h-[600px] md:h-[700px]">
             {/* Tall portrait — spans 2 rows */}
-            <div className="row-span-2">
-              <PhotoPlaceholder
-                caption="Elise + Marcus · Airlie Gardens"
-                className="h-full w-full rounded-sm"
+            <div className="row-span-2 relative group overflow-hidden rounded-sm">
+              <img
+                src="https://picsum.photos/seed/airlieoak/800/1100"
+                alt="Elise + Marcus · Airlie Gardens"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
               />
+              <div className="absolute inset-0 bg-stone-dark/0 group-hover:bg-stone-dark/40 transition-all duration-500 flex items-end">
+                <p className="font-cormorant italic text-cream text-sm p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  Elise + Marcus · Airlie Gardens
+                </p>
+              </div>
             </div>
+
             {/* Landscape top right */}
-            <PhotoPlaceholder
-              caption="Sophia + Daniel · Fig Tree Restaurant"
-              className="h-full w-full rounded-sm"
-            />
+            <div className="relative group overflow-hidden rounded-sm">
+              <img
+                src="https://picsum.photos/seed/figtreevenue/900/600"
+                alt="Sophia + Daniel · Fig Tree Restaurant"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-stone-dark/0 group-hover:bg-stone-dark/40 transition-all duration-500 flex items-end">
+                <p className="font-cormorant italic text-cream text-sm p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  Sophia + Daniel · Fig Tree Restaurant
+                </p>
+              </div>
+            </div>
+
             {/* Landscape bottom right */}
-            <PhotoPlaceholder
-              caption="Margot + James · Sunset Beach"
-              className="h-full w-full rounded-sm"
-            />
+            <div className="relative group overflow-hidden rounded-sm">
+              <img
+                src="https://picsum.photos/seed/sunsetbeachNC/900/600"
+                alt="Margot + James · Sunset Beach"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-stone-dark/0 group-hover:bg-stone-dark/40 transition-all duration-500 flex items-end">
+                <p className="font-cormorant italic text-cream text-sm p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  Margot + James · Sunset Beach
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="text-center mt-10">
