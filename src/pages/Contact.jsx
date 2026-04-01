@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const initialForm = {
   firstName: '',
@@ -16,6 +17,7 @@ export default function Contact() {
   const [form, setForm] = useState(initialForm)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const navigate = useNavigate()
 
   const handleChange = e => {
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
@@ -40,7 +42,7 @@ export default function Contact() {
       })
       const data = await res.json()
       if (data.success) {
-        window.location.href = '/Cape-Fear-Collective/thanks'
+        navigate('/thanks')
       } else {
         setError('Something went wrong. Please email us directly at hello@capefearcollective.com')
       }

@@ -10,7 +10,7 @@ import Thanks from './pages/Thanks'
 
 function App() {
   return (
-    <BrowserRouter basename="/Cape-Fear-Collective/">
+    <BrowserRouter basename="/Cape-Fear-Collective">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
