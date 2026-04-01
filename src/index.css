@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-cormorant: 'Cormorant Garamond', serif;
+  --font-jost: 'Jost', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0E0C0A;
+  color: #F5F0E8;
+  font-family: var(--font-jost);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #2C2825;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(201, 169, 110, 0.5);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(201, 169, 110, 0.8);
+}
+
+/* Animated underline CTA link */
+.cta-link {
+  position: relative;
+  display: inline-block;
+  color: #F5F0E8;
+  text-decoration: none;
+  font-family: var(--font-jost);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  transition: color 400ms ease;
+}
+
+.cta-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #C9A96E;
+  transition: width 400ms ease;
+}
+
+.cta-link:hover::after {
+  width: 100%;
+}
+
+.cta-link:hover {
+  color: #C9A96E;
+}
+
+/* Gold divider */
+.gold-rule {
+  border: none;
+  border-top: 1px solid rgba(201, 169, 110, 0.3);
+  margin: 0;
+}
+
+/* Image placeholder */
+.photo-placeholder {
+  background-color: #1a1714;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(201, 169, 110, 0.2);
+}
+
+.photo-placeholder span {
+  font-family: var(--font-cormorant);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #A89F94;
+  text-align: center;
+  padding: 1rem;
+}
